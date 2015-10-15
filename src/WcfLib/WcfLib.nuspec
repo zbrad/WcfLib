@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.0-beta</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://github.com/zbrad/WcfLib/LICENSE</licenseUrl>
+    <projectUrl>http://github.com/zbrad/WcfLib</projectUrl>
+    <iconUrl>http://github.com/zbrad/WcfLib/ZBrad.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>$title$</summary>
+    <description>$description$</description>
+    <releaseNotes></releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>WCF</tags>
+  </metadata>
+</package>
