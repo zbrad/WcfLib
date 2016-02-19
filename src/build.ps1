@@ -10,7 +10,7 @@ Param(
 # powershell "$(SolutionDir)build.ps1" "$(SolutionDir)." "$(ProjectPath)" "$(TargetDir)." -verbose
 
 Set-Location $solutionDir
-$nuget = Get-Path ("packages\" + (Get-ChildItem -Path packages -Recurse -Name nuget.exe))
+$nuget = Resolve-Path ("packages\" + (Get-ChildItem -Path packages -Recurse -Name nuget.exe))
 
 $dest = 'c:\LocalNuGet'
 if (!(Test-Path $dest)) {
