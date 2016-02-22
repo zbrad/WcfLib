@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ZBrad.WcfLib
 {
-    public abstract class WcfServiceBase
+    public abstract class WcfServiceBase : IStartable
     {
         static NLog.Logger log = NLog.LogManager.GetCurrentClassLogger();
 
