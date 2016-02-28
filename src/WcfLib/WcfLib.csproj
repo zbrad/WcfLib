@@ -78,7 +78,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>powershell $(SolutionDir)build.ps1 "$(SolutionDir)." "$(ProjectPath)" "$(TargetDir)." $(ConfigurationName)
+    <PostBuildEvent>
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -88,4 +88,19 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <NuFile Include="$(SolutionDir)\packages\**\nuget.exe" />
+    </ItemGroup>
+    <PropertyGroup>
+      <NuGet>%(NuFile.FullPath)</NuGet>
+    </PropertyGroup>
+    <Message Text="test path $(NuGet)" />
+    <Exec Command="&quot;$(NuGet)&quot; pack &quot;$(ProjectPath)&quot; -OutputDirectory &quot;$(TargetDir).&quot; -BasePath &quot;$(TargetDir).&quot;" LogStandardErrorAsError="true" />
+    <ItemGroup>
+      <Packages Include="$(TargetDir)$(TargetName)*.nupkg" />
+    </ItemGroup>
+    <Message Text="packages: @(Packages)" />
+    <Copy SourceFiles="@(Packages)" DestinationFolder="c:\LocalNuGet" Condition="Exists('c:\LocalNuGet')" />
+  </Target>
 </Project>
